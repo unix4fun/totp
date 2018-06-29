@@ -3,6 +3,9 @@ package totp
 import (
 	"hash"
 	"time"
+
+	// external
+	"github.com/unix4fun/hotp"
 )
 
 const (
@@ -10,13 +13,13 @@ const (
 )
 
 type Totp struct {
-	h *Hotp
+	h *hotp.Hotp
 	s uint64 // the infamous timestep, default to 30 seconds
 }
 
 func NewTotp(f func() hash.Hash, s []byte, d int, step int) *Totp {
 	t := &Totp{
-		h: NewHotp(f, s, d),
+		h: hotp.NewHotp(f, s, d),
 		s: uint64(step),
 	}
 
