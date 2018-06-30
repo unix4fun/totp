@@ -22,7 +22,6 @@ func NewTotp(f func() hash.Hash, s []byte, d int, step int) *Totp {
 		h: hotp.NewHotp(f, s, d),
 		s: uint64(step),
 	}
-
 	return t
 }
 
