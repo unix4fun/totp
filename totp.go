@@ -17,9 +17,9 @@ type Totp struct {
 	s uint64 // the infamous timestep, default to 30 seconds
 }
 
-func NewTotp(f func() hash.Hash, s []byte, d int, step int) *Totp {
+func New(f func() hash.Hash, s []byte, d int, step int) *Totp {
 	t := &Totp{
-		h: hotp.NewHotp(f, s, d),
+		h: hotp.New(f, s, d),
 		s: uint64(step),
 	}
 	return t

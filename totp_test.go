@@ -52,7 +52,7 @@ var (
 
 func TestRfcVectors(t *testing.T) {
 	for i, v := range RFCTestVectors {
-		to := NewTotp(v.f, []byte(v.s), 8, 30)
+		to := New(v.f, []byte(v.s), 8, 30)
 		totp, err := to.Get(v.t)
 		if err != nil {
 			t.Fatalf("[%d] totp error: %v", i, err)
