@@ -9,7 +9,8 @@ import (
 )
 
 const (
-	T0 = 0
+	T0      = 0
+	Version = "0.1.0"
 )
 
 type Totp struct {
